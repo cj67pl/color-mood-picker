@@ -1,0 +1,263 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+
+}
+
+
+.container {
+    background-color: rgb(87, 86, 86);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    /* overflow-y: auto; */
+    
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+
+    max-width: 700px;
+    width: 100%;
+    height: 400px;
+    padding: 40px;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.inst {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.mood .qoute {
+    width: 90%;
+    height: 100px;
+    text-align: center;
+    display: none;
+    
+}
+
+
+.moods-container {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    /* position: relative; */
+    /* overflow: hidden; */
+}
+
+
+.mood {
+    display: flex;
+    cursor: pointer;
+}
+
+
+.mood img {
+    width: 100px;
+    height: auto;
+    transition: transform 0.6s ease, width 0.6s ease, height 0.6s ease;
+    position: relative;
+}
+
+.mood:hover img {
+    transform: scale(1.5);
+}
+
+
+.selected {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    left: 140px;
+    background-color: #FFD93D;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    border: 2px solid #FF9F1C;
+    cursor: default;
+}
+
+.mood.selected:hover img{
+    transition: none;
+    transform: none;
+}
+
+.selected img {
+    position: absolute;
+    top: 100px;
+    left: -100px;
+     
+    width: 250px;
+    height: 300px;
+}
+
+
+
+.selected img:hover {
+    
+    animation: jump 1s ease;
+
+}
+
+@keyframes jump {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-20px); }  /* jump up */
+  50%  { transform: translateY(0); }      /* come down */
+  70%  { transform: translateY(-10px); }  /* small bounce */
+  100% { transform: translateY(0); }      /* settle */
+}
+
+.selected .qoute {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 180px;
+    top: 0;
+    width: 60%;
+    opacity: 1;
+    align-items: flex-start;
+}
+
+.selected .back-arrow {
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    font-size: 55px;
+    cursor: pointer;
+    color: #FF9F1C;
+    font-weight: bolder;
+}
+
+.selected .back-arrow:hover {
+    transform: scale(1.2);
+    font-weight: bolder;
+}
+
+
+.selected .qoute h1 {
+    text-align: center;
+    font-size: 45px;
+    font-family: 'Orbitron', sans-serif;
+    text-align: left;
+    margin-left: 30px;
+}
+
+.inst-hide, .not-selected {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 750px) {
+
+    .selected {
+        left: 100px;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .inst {
+        display: flex;
+        align-items: flex-start;
+    }
+    .inst span {
+        font-size: 20px;
+    }
+    .display {
+        width: 60%;
+        height: 600px;
+        justify-content: space-between;
+    }
+
+    .moods-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .mood {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mood img {
+        width: 80px;
+    }
+
+ 
+
+   .moods-container .mood:nth-child(1):hover img {
+        transform: translate(-30vw, 25vh) scale(2);
+    }
+
+    .moods-container .mood:nth-child(2):hover img {
+        transform: translate(-30vw, 10vh) scale(2);
+    }
+
+    .moods-container .mood:nth-child(3):hover img {
+        transform: translate(-30vw, 0) scale(2);
+    }
+    .moods-container .mood:nth-child(4):hover img {
+        transform: translate(-30vw, -15vh) scale(2);
+    }
+
+    .moods-container .mood:nth-child(5):hover img {
+        transform: translate(-30vw, -30vh) scale(2);
+    }
+
+
+    .selected {
+        top: 50px;
+        left: 50px;
+        background-color: #FFD93D;
+    }
+
+    .moods-container .mood.selected:hover img{
+        transition: none;
+        transform: none;
+    }
+
+    .selected img {
+        width: 250px;
+        top: 30px;
+        left: 30px;
+    }
+
+    .selected .back-arrow {
+        position: absolute;
+        left: 60px;
+        z-index: 100;
+    }
+
+    .selected .qoute h1 {
+        position: absolute;
+        top: 320px;
+        font-size: 35px;
+        margin-left: -80px;
+        left: 150px;
+        width: 250px;
+        text-align: center;
+    }
+
+}
